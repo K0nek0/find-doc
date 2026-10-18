@@ -1,4 +1,7 @@
 # --- Приложение ---
+install:
+    uv sync
+
 # Запуск сервера в режиме разработки
 run:
     uv run uvicorn src.find_doc.main:app --reload --host 127.0.0.1 --port 8000
