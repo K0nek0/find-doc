@@ -1,0 +1,43 @@
+[project]
+name = "find-doc"
+version = "0.1.0"
+description = "Document Search Service"
+readme = "README.md"
+authors = [
+    { name = "K0nek0", email = "silent_master@mail.ru" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "aiohttp>=3.14.5",
+    "asyncpg>=0.32.0",
+    "elasticsearch>=9.5.1",
+    "fastapi>=0.143.1",
+    "httpx>=0.28.1",
+    "pydantic>=2.14.1",
+    "pydantic-settings>=2.16.0",
+    "sqlalchemy[asyncio]>=2.1.4",
+    "uvicorn>=0.54.0",
+]
+
+[project.scripts]
+find-doc = "find_doc:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "aiosqlite>=0.22.1",
+    "mypy>=2.4.0",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.17.0",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "SIM", "S", "BLE"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/find_doc/api/routes.py" = ["B008"]
+"src/find_doc/core/config.py" = ["S104"] 
